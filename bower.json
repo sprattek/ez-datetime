@@ -1,6 +1,6 @@
 {
   "name": "ez-datetime-tattek",
-  "version": "0.1.9a",
+  "version": "0.1.10",
   "ignore": [
     "node_modules",
     "bower_components"

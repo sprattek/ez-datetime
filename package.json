@@ -2,7 +2,7 @@
   "name": "ez-datetime",
   "description": "Angular datetime picker directive",
   "keywords": [],
-  "version": "0.1.9a",
+  "version": "0.1.10",
   "author": "Tattek",
   "license": "MIT",
   "repository": {
