@@ -1,11 +1,16 @@
 {
-  "name": "ez-datetime",
-  "version": "0.1.9",
+  "name": "ez-datetime-tattek",
+  "version": "0.1.9a",
   "ignore": [
     "node_modules",
     "bower_components"
   ],
   "dependencies": {
     "angular": "1.*"
-  }
+  },
+  "main": [
+    "./dist/ez-datetime.min.js",
+    "./dist/ez-datetime-tpl.js",
+    "./dist/ez-datetime.min.css"
+  ]
 }

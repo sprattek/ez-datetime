@@ -139,67 +139,65 @@ angular.module('ez.datetime')
   /**
    * Shortcut range options
    */
-  shortcuts: [
-    {
-      id: 'today',
-      name: 'Today',
-      from: moment().startOf('day'),
-      to: moment().endOf('day')
-    }, {
-      id: 'tomorrow',
-      name: 'Tomorrow',
-      from: moment().add(1, 'days').startOf('day'),
-      to: moment().add(1, 'days').endOf('day')
-    }, {
-      id: 'yesterday',
-      name: 'Yesterday',
-      from: moment().subtract(1, 'days').startOf('day'),
-      to: moment().subtract(1, 'days').endOf('day')
-    }, {
-      id: 'this_week',
-      name: 'This Week',
-      from: moment().startOf('week'),
-      to: moment().endOf('week')
-    }, {
-      id: 'next_week',
-      name: 'Next Week',
-      from: moment().add(1, 'week').startOf('week'),
-      to: moment().add(1, 'week').endOf('week')
-    }, {
-      id: 'last_week',
-      name: 'Last Week',
-      from: moment().subtract(1, 'week').startOf('week'),
-      to: moment().subtract(1, 'week').endOf('week')
-    }, {
-      id: 'this_month',
-      name: 'This Month',
-      from: moment().startOf('month'),
-      to: moment().endOf('month')
-    }, {
-      id: 'next_month',
-      name: 'Next Month',
-      from: moment().add(1, 'month').startOf('month'),
-      to: moment().add(1, 'month').endOf('month')
-    }, {
-      id: 'last_month',
-      name: 'Last Month',
-      from: moment().subtract(1, 'month').startOf('month'),
-      to: moment().subtract(1, 'month').endOf('month')
-    }, {
-      id: 'this_year',
-      name: 'This Year',
-      from: moment().startOf('year'),
-      to: moment().endOf('year')
-    }
-  ]
+  shortcuts: [{
+    id: 'today',
+    name: 'Today',
+    from: moment().startOf('day'),
+    to: moment().endOf('day')
+  }, {
+    id: 'tomorrow',
+    name: 'Tomorrow',
+    from: moment().add(1, 'days').startOf('day'),
+    to: moment().add(1, 'days').endOf('day')
+  }, {
+    id: 'yesterday',
+    name: 'Yesterday',
+    from: moment().subtract(1, 'days').startOf('day'),
+    to: moment().subtract(1, 'days').endOf('day')
+  }, {
+    id: 'this_week',
+    name: 'This Week',
+    from: moment().startOf('week'),
+    to: moment().endOf('week')
+  }, {
+    id: 'next_week',
+    name: 'Next Week',
+    from: moment().add(1, 'week').startOf('week'),
+    to: moment().add(1, 'week').endOf('week')
+  }, {
+    id: 'last_week',
+    name: 'Last Week',
+    from: moment().subtract(1, 'week').startOf('week'),
+    to: moment().subtract(1, 'week').endOf('week')
+  }, {
+    id: 'this_month',
+    name: 'This Month',
+    from: moment().startOf('month'),
+    to: moment().endOf('month')
+  }, {
+    id: 'next_month',
+    name: 'Next Month',
+    from: moment().add(1, 'month').startOf('month'),
+    to: moment().add(1, 'month').endOf('month')
+  }, {
+    id: 'last_month',
+    name: 'Last Month',
+    from: moment().subtract(1, 'month').startOf('month'),
+    to: moment().subtract(1, 'month').endOf('month')
+  }, {
+    id: 'this_year',
+    name: 'This Year',
+    from: moment().startOf('year'),
+    to: moment().endOf('year')
+  }]
 });
 
 angular.module('ez.datetime').controller('EzDatetimeModalController', [
   '$scope',
-  '$modalInstance',
+  '$uibModalInstance',
   function(
     $scope,
-    $modalInstance
+    $uibModalInstance
   ) {
     var min, max, shortcut;
 
@@ -246,11 +244,11 @@ angular.module('ez.datetime').controller('EzDatetimeModalController', [
     };
 
     $scope.dismiss = function() {
-      $modalInstance.dismiss();
+      $uibModalInstance.dismiss();
     };
 
     $scope.ok = function() {
-      $modalInstance.close();
+      $uibModalInstance.close();
     };
   }
 ]);
@@ -456,7 +454,7 @@ angular.module('ez.datetime').directive('ezDatePicker', [
               var dateValue = {
                 'dateValue': monthMoment,
                 'display': monthMoment.format('MMM'),
-                'active':  !!ngModel.$modelValue && monthDash === activeMonthDash,
+                'active': !!ngModel.$modelValue && monthDash === activeMonthDash,
                 'isToday': monthDash === todayDash
               };
 
@@ -626,12 +624,12 @@ angular.module('ez.datetime').directive('ezDatePicker', [
 angular.module('ez.datetime').directive('ezDatetimeControl', [
   'EzDatetimeService',
   '$timeout',
-  '$modal',
+  '$uibModal',
   '$parse',
   function(
     DatetimeService,
     $timeout,
-    $modal,
+    $uibModal,
     $parse
   ) {
     return {
@@ -679,7 +677,7 @@ angular.module('ez.datetime').directive('ezDatetimeControl', [
             to: scope.to
           };
 
-          $modal.open({
+          $uibModal.open({
             templateUrl: 'ez_datetime_modal.html',
             controller: 'EzDatetimeModalController',
             scope: scope,
@@ -704,12 +702,12 @@ angular.module('ez.datetime').directive('ezDatetimeRangeControl', [
   'EzDatetimeService',
   '$parse',
   '$timeout',
-  '$modal',
+  '$uibModal',
   function(
     DatetimeService,
     $parse,
     $timeout,
-    $modal
+    $uibModal
   ) {
     return {
       restrict: 'EA',
@@ -833,8 +831,8 @@ angular.module('ez.datetime').directive('ezDatetimeRangeControl', [
             scope.form.to = scope.to;
           }
 
-          $modal.open({
-            templateUrl:'ez_datetime_range_modal.html',
+          $uibModal.open({
+            templateUrl: 'ez_datetime_range_modal.html',
             controller: 'EzDatetimeModalController',
             scope: scope,
           }).result.then(function() {
@@ -996,13 +994,13 @@ angular.module('ez.datetime').directive('ezTimePicker', [
           $event.preventDefault();
           $event.stopPropagation();
 
-          switch(scope.data.minuteStep) {
+          switch (scope.data.minuteStep) {
             case 15:
               scope.data.minuteStep = 5;
-            break;
+              break;
             case 5:
               scope.data.minuteStep = 1;
-            break;
+              break;
           }
 
           setOptions();
@@ -1012,13 +1010,13 @@ angular.module('ez.datetime').directive('ezTimePicker', [
           $event.preventDefault();
           $event.stopPropagation();
 
-          switch(scope.data.secondStep) {
+          switch (scope.data.secondStep) {
             case 15:
               scope.data.secondStep = 5;
-            break;
+              break;
             case 5:
               scope.data.secondStep = 1;
-            break;
+              break;
           }
 
           setOptions();

@@ -39,13 +39,13 @@
         <a dropdown-toggle class="btn btn-default">
           <i class="{{ options.shortcutBtnIcon }}"></i>
           <span ng-if="!form.shortcut">{{ options.shortcutBtnText }}</span>
-          <span ng-if="!!form.shortcut">{{ form.shortcutName }}</span>
-          <span class="caret"></span>
-        </a>
+      <span ng-if="!!form.shortcut">{{ form.shortcutName }}</span>
+      <span class="caret"></span>
+      </a>
 
-        <ul class="dropdown-menu">
-          <li ng-repeat="shortcut in shortcuts"><a ng-click="select($index)">{{ options.shortcutNamePrefix }}{{ shortcut.name }}</a></li>
-        </ul>
+      <ul class="dropdown-menu">
+        <li ng-repeat="shortcut in shortcuts"><a ng-click="select($index)">{{ options.shortcutNamePrefix }}{{ shortcut.name }}</a></li>
+      </ul>
       </span>
 
       <a class="btn btn-default clear-btn" title="Clear Date" ng-click="clear()" ng-if="!!form.from || !!form.to">

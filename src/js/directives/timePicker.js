@@ -132,13 +132,13 @@ angular.module('ez.datetime').directive('ezTimePicker', [
           $event.preventDefault();
           $event.stopPropagation();
 
-          switch(scope.data.minuteStep) {
+          switch (scope.data.minuteStep) {
             case 15:
               scope.data.minuteStep = 5;
-            break;
+              break;
             case 5:
               scope.data.minuteStep = 1;
-            break;
+              break;
           }
 
           setOptions();
@@ -148,13 +148,13 @@ angular.module('ez.datetime').directive('ezTimePicker', [
           $event.preventDefault();
           $event.stopPropagation();
 
-          switch(scope.data.secondStep) {
+          switch (scope.data.secondStep) {
             case 15:
               scope.data.secondStep = 5;
-            break;
+              break;
             case 5:
               scope.data.secondStep = 1;
-            break;
+              break;
           }
 
           setOptions();

@@ -199,7 +199,7 @@ angular.module('ez.datetime').directive('ezDatePicker', [
               var dateValue = {
                 'dateValue': monthMoment,
                 'display': monthMoment.format('MMM'),
-                'active':  !!ngModel.$modelValue && monthDash === activeMonthDash,
+                'active': !!ngModel.$modelValue && monthDash === activeMonthDash,
                 'isToday': monthDash === todayDash
               };
 
